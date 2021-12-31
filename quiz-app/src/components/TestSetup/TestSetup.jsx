@@ -21,7 +21,7 @@ export class TestSetup extends Component {
         <form className="ui-test-setup__form">
           <div className="ui-test-setup__form__container">
             <div className="ui-test-setup__form__container__range">
-              <label for="points">Select the range of numbers:</label>
+              <label htmlFor="points">Select the range of numbers:</label>
               <input
                 type="range"
                 id="points"
@@ -56,7 +56,7 @@ export class TestSetup extends Component {
                       })
                     }
                   />
-                  <label for="html">{`${operatorToWord[operator]} (${operator})`}</label>
+                  <label htmlFor="html">{`${operatorToWord[operator]} (${operator})`}</label>
                   <br />
                 </span>
               ))}
@@ -75,7 +75,8 @@ export class TestSetup extends Component {
               <input
                 type="submit"
                 value="Continue"
-                onClick={() => {
+                onClick={(event) => {
+                event.preventDefault();
                   if (!isUndefined(this.state.operator)) {
                     this.props.handleTestStart({
                       maxRange: this.state.maxRange,

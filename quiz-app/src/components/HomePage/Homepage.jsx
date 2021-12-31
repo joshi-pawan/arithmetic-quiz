@@ -8,33 +8,13 @@ export class Homepage extends Component {
 
     this.state = {
       operators: ["+", "-", "*", "/"],
-      sections: [
-        {
-          title: "Arithmetic Section 1",
-          questions: [],
-          actual_answers: [],
-          user_answers: [],
-          finalScore: undefined,
-          maxRange: undefined,
-          selectedOperator: undefined,
-        },
-        {
-          title: "Arithmetic Section 2",
-          questions: [],
-          actual_answers: [],
-          user_answers: [],
-          finalScore: undefined,
-          maxRange: undefined,
-          selectedOperator: undefined,
-        },
-      ],
     };
   }
   render() {
     return (
       <div className="ui-homepage">
-        {map(get(this.state, "sections", []), (section, index) => (
-          <Section operators={this.state.operators} {...section} key={index} />
+        {map([ ...Array( 2 ).keys() ], item => (
+          <Section operators={this.state.operators} key={item} sectionCount={item+1} />
         ))}
       </div>
     );
