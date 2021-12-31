@@ -10,19 +10,29 @@ export class Section extends Component {
             questions: [],
             actual_answers: [],
             user_answers: [],
-            finalScore: undefined,
+            finalScore: 0,
             maxRange: undefined,
             selectedOperator: undefined,
             hasTimerStarted: false
           };
           this.handleTestStart = this.handleTestStart.bind(this);
+          this.handleNextClick = this.handleNextClick.bind(this);
     }
     handleTestStart({maxRange, operator}){
         this.setState({
             ...this.state,
-            operator:operator,
+            selectedOperator:operator,
             maxRange: maxRange,
             hasTimerStarted:true
+        })
+    }
+    handleNextClick({userResponse, correctResponse}){
+
+        this.setState({
+            ...this.state,
+            actual_answers: [...this.state.actual_answers, correctResponse],
+            user_answers: [...this.state.user_answers, userResponse],
+            finalScore: userResponse===correctResponse? this.state.finalScore+1: this.state.finalScore
         })
     }
     render() {
@@ -33,7 +43,7 @@ export class Section extends Component {
                     !this.state.hasTimerStarted && <TestSetup handleTestStart={this.handleTestStart} operators={this.props.operators}/>
                 }
                 {
-                    this.state.hasTimerStarted && <TestTracker/>
+                    this.state.hasTimerStarted && <TestTracker selectedOperator={this.state.selectedOperator} maxRange={this.state.maxRange} handleNextClick={this.handleNextClick}/>
                 }
             </div>
         )
