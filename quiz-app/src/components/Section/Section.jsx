@@ -13,7 +13,7 @@ const initialState = {
   maxRange: undefined,
   selectedOperator: undefined,
   hasTimerStarted: false,
-  maxQuestion: 5,
+  maxQuestion: 10,
   hasTestTimeEnded: false,
 };
 export class Section extends Component {
