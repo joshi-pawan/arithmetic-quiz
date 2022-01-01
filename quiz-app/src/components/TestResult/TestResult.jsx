@@ -1,4 +1,4 @@
-import { get, isEmpty, map } from "lodash";
+import { get, isEmpty, map, size } from "lodash";
 import React from "react";
 import "./testResult.style.scss";
 import emptyPaper from "../../assets/emptyPaper.gif";
@@ -25,7 +25,7 @@ function TestResult(props) {
           following is the test result
         </h2>
         <br />
-        <span style={{backgroundColor:'rgb(43, 19, 100)', color:'white', padding:'10px', borderRadius:'5px'}}>Score: {props.finalScore}</span>
+        <span style={{backgroundColor:'rgb(43, 19, 100)', color:'white', padding:'10px', borderRadius:'5px'}}>Score: {props.finalScore} out of {size(props.questions)}</span>
         <br />
         <h2>Response Sheet</h2>
         <br />
