@@ -15,6 +15,7 @@ const initialState = {
   hasTimerStarted: false,
   maxQuestion: 10,
   hasTestTimeEnded: false,
+  isRunning: true
 };
 export class Section extends Component {
   constructor(props) {

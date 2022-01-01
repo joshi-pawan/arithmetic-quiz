@@ -1,6 +1,7 @@
 import React from "react";
 import { useTimer } from "react-timer-hook";
 import './timer.style.scss'
+
 function Timer(props) {
   const time = new Date();
   time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
