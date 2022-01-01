@@ -13,8 +13,12 @@ export class Homepage extends Component {
   render() {
     return (
       <div className="ui-homepage">
-        {map([ ...Array( 2 ).keys() ], item => (
-          <Section operators={this.state.operators} key={item} sectionCount={item+1} />
+        {map([...Array(2).keys()], (item) => (
+          <Section
+            operators={this.state.operators}
+            key={item}
+            sectionCount={item + 1}
+          />
         ))}
       </div>
     );
