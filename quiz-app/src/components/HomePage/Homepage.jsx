@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { get, map } from "lodash";
+import { map } from "lodash";
 import Section from "../Section/Section";
 import "./homepage.style.scss";
 export class Homepage extends Component {

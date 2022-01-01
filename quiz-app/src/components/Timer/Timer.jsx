@@ -4,7 +4,7 @@ import './timer.style.scss'
 function Timer(props) {
   const time = new Date();
   time.setSeconds(time.getSeconds() + 20); // 10 minutes timer
-  const { seconds, minutes, isRunning } = useTimer({
+  const { seconds, minutes } = useTimer({
     expiryTimestamp: time,
     autoStart: true,
     onExpire: () => props.triggerTestEnd({isRunning:false}),
