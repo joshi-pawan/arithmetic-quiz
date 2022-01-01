@@ -4,4 +4,18 @@
     flex-direction: column;
     align-items: flex-start;
     row-gap: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    background-color: #3f3864;
+    padding: 90px 60px;
+    margin-top: 100px;
+
+    &__question{
+        font-size: 20px;
+        color: white;
+    }
+    &__response{
+        font-size: 20px;
+        color: white;
+    }
 }

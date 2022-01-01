@@ -1,6 +1,7 @@
 import { isUndefined, map } from "lodash";
 import React, { Component } from "react";
 import "./testSetup.style.scss";
+import quiz from "../../assets/giphy.gif";
 const operatorToWord = {
   "+": "Addition",
   "-": "Subtraction",
@@ -18,6 +19,13 @@ export class TestSetup extends Component {
   render() {
     return (
       <div className="ui-test-setup">
+        <div>
+          <img
+            src={quiz}
+            alt="Computer man"
+            style={{ width: "600px", height: "350px" }}
+          ></img>
+        </div>
         <form className="ui-test-setup__form">
           <div className="ui-test-setup__form__container">
             <div className="ui-test-setup__form__container__range">
@@ -39,10 +47,10 @@ export class TestSetup extends Component {
               />
               <span>{this.state.maxRange}</span>
             </div>
+            <p>Select the arithmetic operation to practice</p>
             <div className="ui-test-setup__form__container__operator">
-              <p>Select the arithmetic operation to practice</p>
               {map(this.props.operators, (operator) => (
-                <span key={operatorToWord[operator]}>
+                <div key={operatorToWord[operator]}>
                   <input
                     type="radio"
                     id={operator}
@@ -58,25 +66,29 @@ export class TestSetup extends Component {
                   />
                   <label htmlFor="html">{`${operatorToWord[operator]} (${operator})`}</label>
                   <br />
-                </span>
+                </div>
               ))}
             </div>
             <div className="ui-test-setup__form__container__instructions">
-              <pre>
-                Please press continue to start the test.
-                <br />
-                Note:
-                <br />
-                1. Once started a timer will begin for 10 minutes which can't be
-                paused.
-                <br />
-                2. At the end of test you'll get the result.
-              </pre>
+
+              <div className="ui-test-setup__form__container__instructions__note">
+                <ul>
+                  Note :
+                  <li>
+                    Once started a timer will begin for 10 minutes which can't
+                    be paused.
+                  </li>
+                  <li>At the end of test you'll get the result.</li>
+                </ul>
+              </div >
+              <div>Please press continue to start the test.</div>
+            </div>
+            <div className="ui-test-setup__form__container__actions">
               <input
                 type="submit"
                 value="Continue"
                 onClick={(event) => {
-                event.preventDefault();
+                  event.preventDefault();
                   if (!isUndefined(this.state.operator)) {
                     this.props.handleTestStart({
                       maxRange: this.state.maxRange,

@@ -1,13 +1,76 @@
 .ui-test-setup{
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
     &__form{
        &__container{
            display: flex;
            flex-direction: column;
            align-items: flex-start;
-
+           row-gap: 20px;
+           &__range{
+               width: 100%;
+               display: flex;
+               justify-content: flex-start;
+               column-gap: 10px;
+               align-items: center;
+               >span{
+                //    color: rgb(11, 48, 150);
+                //    font-size: 1.4rem;
+                //    background-color: bisque;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+            
+                -moz-border-radius: 30px; /* or 50% */
+                border-radius: 30px; /* or 50% */
+            
+                background-color: rgb(11, 48, 150);
+                color: white;
+                text-align: center;
+                font-size: 1.3em;
+               }
+           }
+           &__operator{
+               width: 100%;
+               display: flex;
+               flex-wrap: wrap;
+               row-gap: 10px;               
+               >div{
+                   text-align: initial;
+                   flex: 0 0 40%;
+                   
+               }
+               >div:nth-child(2n+1){
+                   margin-right: 50px;
+               }
+           }
            &__instructions{
-               
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 20px;
+            *>ul{
+                text-align: initial;
+                color: rgb(231, 69, 69);
+                :nth-child(n){
+                    font-style: italic;
+                    margin-top: 5px;
+                }
+            }
+           }
+           &__actions{
+               align-self: center;
+               >input{
+                   background-color: rgb(3, 69, 122);
+                   color: white;
+                   font-size: 1rem;
+                   padding: 7px;
+                   border-radius: 5px;
+                   outline: 1px rgb(150, 233, 248);
+               }
            }
        }
     }
